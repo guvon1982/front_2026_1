@@ -119,7 +119,7 @@ body.page-login aside {
     
 }
 
-.page-login .login-card section {
+.page-login .login-card form {
     display: block;
     width: 100%;
 }
