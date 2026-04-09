@@ -1,0 +1,15 @@
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+}
+
+/* Removemos o padding extra do mobile */
+@media (max-width: 767px) {
+    .topbar {
+        padding: 1rem; /* Padding normal */
+        justify-content: space-between;
+    }
+}

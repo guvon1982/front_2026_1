@@ -1,0 +1,49 @@
+.sidebar-estatica {
+    display: flex;
+    flex-direction: column;
+    background-color: #dddcdc;
+    color: #303030;
+    width: 250px;
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    border-right: 1px solid #e0e0e0;
+}
+
+/* --- AJUSTE PARA MOBILE (SEM STATE / SEM BOTÃO) --- */
+@media (max-width: 767px) {
+    .sidebar-estatica {
+        width: 100%;       /* Ocupa a largura toda */
+        min-height: auto;  /* Não ocupa a tela toda de altura */
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .sidebar-header {
+        margin-bottom: 1rem;
+        justify-content: center;
+    }
+
+    .sidebar-nav ul {
+        display: flex;     /* Itens um ao lado do outro ou em grade no celular */
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .sidebar-nav li {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        margin-bottom: 0;
+        background: #eee; /* Fica parecendo botões */
+    }
+}
+
+/* Estilos internos que você já tinha */
+.sidebar-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 2rem; }
+.sidebar-header img { height: 35px; }
+.sidebar-nav ul { list-style: none; }
+.sidebar-nav li { padding: 0.8rem 1rem; border-radius: 8px; cursor: pointer; transition: background 0.3s; }
+.sidebar-nav li.active { background-color: #ffffff; font-weight: bold; }
+.sidebar-nav li.logout { color: #d9534f; }

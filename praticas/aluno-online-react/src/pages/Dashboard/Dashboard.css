@@ -1,0 +1,43 @@
+.welcome-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #303030;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.info-card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #d8d7d7;
+    padding: 0.8rem 1rem;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+.card-content p {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.card-content p:last-child {
+    border-bottom: none;
+}
+
+/* No Desktop, os cards ficam um ao lado do outro */
+@media (min-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

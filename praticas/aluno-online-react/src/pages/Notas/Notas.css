@@ -1,0 +1,58 @@
+.notas-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.notas-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.notas-table th, .notas-table td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.notas-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: #333;
+}
+
+.disciplina-nome {
+    text-align: left !important;
+    font-weight: 500;
+}
+
+/* Estilização das Menções conforme a regra */
+.mencao {
+    font-weight: bold;
+}
+
+.mencao-SS { color: #2e7d32; } /* Verde Escuro */
+.mencao-MS { color: #4caf50; } /* Verde Médio */
+.mencao-MM { color: #f9a825; } /* Amarelo/Laranja */
+.mencao-MI, .mencao-II { color: #d32f2f; } /* Vermelho */
+.mencao-SR { color: #303030; background: #eee; border-radius: 4px; } /* Cinza (Falta) */
+
+/* Estilo da Legenda */
+.legenda-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #fdfdfd;
+    border-radius: 8px;
+    border-top: 2px solid #eee;
+}
+
+.legenda-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    color: #666;
+}
