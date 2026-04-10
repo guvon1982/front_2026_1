@@ -1,12 +1,12 @@
-import avatar from "../assets/avatar.svg";
+import avatar from "../assets/avatar.svg"
 
-function Topbar() {
-  return (
-    <header>
-      <h1>Olá, Aluno</h1>
-      <img src={avatar} alt="Imagem do Avatar" />
-    </header>
-  );
+function Topbar(props) {
+    return (
+        <header>
+            <h1>{props.titulo}</h1>
+            <img src={avatar} alt="Imagem do Avatar" />
+        </header>
+    );
 }
 
 export default Topbar;

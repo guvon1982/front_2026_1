@@ -1,17 +1,16 @@
-import Sidebar from "../components/Sidebar";
-import Topbar from "../components/Topbar";
+import Tabela from "../components/Tabela";
+import Layout from "./Layout";
 
 function Requerimentos() {
   return (
-    <>
-      <Sidebar />
-      <main>
-        <Topbar />
-        <h2>Meus Requerimentos</h2>
-        <section></section>
-      </main>
-    </>
+    <Layout
+      titulo="Meus Requerimentos"
+      subtitulo="Histórico"
+    >
+      <Tabela />
+      </Layout>
   );
+
 }
 
 export default Requerimentos;
