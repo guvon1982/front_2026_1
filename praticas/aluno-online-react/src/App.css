@@ -10,18 +10,17 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 1.5rem; /* Ajustado para um respiro melhor em todas as telas */
+  padding: 1.5rem;
 }
 
-/* Quando a tela for grande (Desktop) */
 @media (min-width: 768px) {
   .app-grid {
-    flex-direction: row; /* Desktop: Sidebar na esquerda, conteúdo na direita */
+    flex-direction: row;
   }
 
   .app-content {
-    padding: 2rem 3rem; /* Mais espaço lateral no desktop para elegância */
-    overflow-y: auto;   /* Permite rolar apenas o conteúdo se a página for longa */
+    padding: 2rem 3rem;
+    overflow-y: auto;
     max-height: 100vh;
   }
 }

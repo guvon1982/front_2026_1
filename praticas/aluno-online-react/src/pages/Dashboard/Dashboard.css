@@ -21,21 +21,37 @@
 .card-header {
     background-color: #d8d7d7;
     padding: 0.8rem 1rem;
-    font-weight: bold;
     border-bottom: 1px solid #ccc;
 }
 
+.card-header h3 {
+    margin: 0; /* Remove a margem padrão do h3 */
+    font-size: 1rem; 
+    font-weight: bold;
+    color: #303030;
+}
+
+/* Garantindo que a section de conteúdo se comporte como a antiga div */
+.card-content {
+    display: block;
+}
+
 .card-content p {
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
     font-size: 1rem;
     border-bottom: 1px solid #eee;
+    margin: 0; 
 }
 
 .card-content p:last-child {
     border-bottom: none;
 }
 
-/* No Desktop, os cards ficam um ao lado do outro */
+.card-content p time {
+    font-weight: bold;
+    color: #555;
+}
+
 @media (min-width: 1024px) {
     .dashboard-grid {
         grid-template-columns: 1fr 1fr;

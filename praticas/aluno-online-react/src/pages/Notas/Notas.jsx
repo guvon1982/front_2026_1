@@ -1,7 +1,6 @@
 import './Notas.css';
 
 function Notas() {
-  // Exemplo de dados com a lógica de menção aplicada
   const notasFicticias = [
     { disciplina: 'Front-end Frameworks', p1: 8.5, p2: 9.0, p3: '-', media: 8.75, mencao: 'MS' },
     { disciplina: 'Arquitetura de Software', p1: 7.0, p2: 8.0, p3: '-', media: 7.5, mencao: 'MS' },
@@ -11,25 +10,25 @@ function Notas() {
   ];
 
   return (
-    <div className="notas-container">
+    <main className="notas-container">
       <h1 className="main-title">Minhas Notas</h1>
       
-      <div className="table-responsive">
+      <section className="table-section">
         <table className="notas-table">
           <thead>
             <tr>
-              <th>Disciplina</th>
-              <th>P1</th>
-              <th>P2</th>
-              <th>P3</th> {/* Recuperação da referência do prof */}
-              <th>Média</th>
-              <th>Menção</th> {/* Sigla da referência do prof */}
+              <th scope="col">Disciplina</th>
+              <th scope="col">P1</th>
+              <th scope="col">P2</th>
+              <th scope="col">P3</th>
+              <th scope="col">Média</th>
+              <th scope="col">Menção</th>
             </tr>
           </thead>
           <tbody>
             {notasFicticias.map((item, index) => (
               <tr key={index}>
-                <td className="disciplina-nome">{item.disciplina}</td>
+                <th scope="row" className="disciplina-nome">{item.disciplina}</th>
                 <td>{item.p1}</td>
                 <td>{item.p2}</td>
                 <td>{item.p3}</td>
@@ -39,21 +38,20 @@ function Notas() {
             ))}
           </tbody>
         </table>
-      </div>
+      </section>
 
-      {/* Legenda para ajudar o aluno a entender a regra do professor */}
-      <div className="legenda-container">
-        <h4>Legenda de Menções</h4>
-        <div className="legenda-grid">
-          <span><strong>SS:</strong> 9.0 - 10.0</span>
-          <span><strong>MS:</strong> 7.0 - 8.9</span>
-          <span><strong>MM:</strong> 5.0 - 6.9</span>
-          <span><strong>MI:</strong> 3.0 - 4.9</span>
-          <span><strong>II:</strong> 0.1 - 2.9</span>
-          <span><strong>SR:</strong> Faltas &gt; 25%</span>
-        </div>
-      </div>
-    </div>
+      <aside className="legenda-section">
+        <h2 className="legenda-titulo">Legenda de Menções</h2>
+        <dl className="legenda-list">
+          <dt>SS:</dt> <dd>9.0 - 10.0</dd>
+          <dt>MS:</dt> <dd>7.0 - 8.9</dd>
+          <dt>MM:</dt> <dd>5.0 - 6.9</dd>
+          <dt>MI:</dt> <dd>3.0 - 4.9</dd>
+          <dt>II:</dt> <dd>0.1 - 2.9</dd>
+          <dt>SR:</dt> <dd>Faltas &gt; 25%</dd>
+        </dl>
+      </aside>
+    </main>
   );
 }
 

@@ -14,7 +14,7 @@ function App() {
       <div className="app-content">
         <Topbar />
         <main>
-          <Dashboard />
+          <Requerimentos />
           {/* <Dashboard> */}
           {/* <Notas /> */}
           {/* <Faltas /> */}

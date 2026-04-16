@@ -7,31 +7,41 @@ function Boletos() {
   ];
 
   return (
-    <div className="boletos-container">
-      <h1 className="main-title">Financeiro / Boletos</h1>
+    <main className="boletos-container">
+      <header className="page-header">
+        <h1 className="main-title">Financeiro / Boletos</h1>
+      </header>
       
-      <div className="boletos-list">
+      <section className="boletos-list" aria-label="Lista de faturas">
         {faturas.map(fatura => (
-          <div key={fatura.id} className="boleto-card">
-            <div className="boleto-info">
-              <span className="boleto-titulo">Mensalidade - {fatura.mes}</span>
-              <div className="boleto-detalhes">
-                <span><strong>Vencimento:</strong> {fatura.vencimento}</span>
-                <span><strong>Valor:</strong> R$ {fatura.valor.toFixed(2)}</span>
-              </div>
-            </div>
+          <article key={fatura.id} className="boleto-card">
+            <header className="boleto-info">
+              <h2 className="boleto-titulo">Mensalidade - {fatura.mes}</h2>
+              
+              <dl className="boleto-detalhes">
+                <dt>Vencimento:</dt>
+                <dd>
+                  <time dateTime={fatura.vencimento.split('/').reverse().join('-')}>
+                    {fatura.vencimento}
+                  </time>
+                </dd>
 
-            <div className="boleto-status">
+                <dt>Valor:</dt>
+                <dd>R$ {fatura.valor.toFixed(2)}</dd>
+              </dl>
+            </header>
+
+            <footer className="boleto-status">
               {fatura.status === 'PAGO' ? (
-                <span className="status-pago">PAGO</span>
+                <strong className="status-pago">PAGO</strong>
               ) : (
-                <button className="btn-gerar">Gerar Boleto</button>
+                <button type="button" className="btn-gerar">Gerar Boleto</button>
               )}
-            </div>
-          </div>
+            </footer>
+          </article>
         ))}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
