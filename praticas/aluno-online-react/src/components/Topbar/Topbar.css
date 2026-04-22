@@ -1,15 +1,41 @@
 .topbar {
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.topbar-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
-    padding: 1rem 0;
+    width: 100%;
 }
 
-/* Removemos o padding extra do mobile */
+.topbar h1 {
+    font-size: 1.5rem;
+    color: #303030;
+}
+
+/* Estilo para o container da imagem */
+.user-info {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 @media (max-width: 767px) {
     .topbar {
-        padding: 1rem; /* Padding normal */
-        justify-content: space-between;
+        padding: 1rem;
+    }
+    
+    .topbar h1 {
+        font-size: 1.2rem;
     }
 }

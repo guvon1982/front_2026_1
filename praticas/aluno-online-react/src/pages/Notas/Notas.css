@@ -3,56 +3,91 @@
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: block; /* Garante comportamento de bloco no main */
+}
+
+.main-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    color: #000;
 }
 
 .notas-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
+    margin-bottom: 2.5rem;
 }
 
 .notas-table th, .notas-table td {
     padding: 1rem;
     text-align: center;
     border: 1px solid #eee;
+    font-size: 0.95rem;
 }
 
-.notas-table th {
-    background-color: #f0f0f0;
-    font-weight: bold;
+.notas-table thead th {
+    background-color: #f5f5f5;
     color: #333;
+    font-weight: 700;
 }
 
 .disciplina-nome {
     text-align: left !important;
-    font-weight: 500;
+    padding-left: 1.5rem !important;
+    font-weight: 600;
 }
 
-/* Estilização das Menções conforme a regra */
-.mencao {
+/* Estilo das Menções */
+.mencao { font-weight: bold; }
+.mencao-SS { color: #2e7d32; }
+.mencao-MS { color: #4caf50; }
+.mencao-MM { color: #f9a825; }
+.mencao-MI, .mencao-II { color: #d32f2f; }
+.mencao-SR { 
+    background: #eee; 
+    border-radius: 4px; 
+    padding: 8px 12px; 
+}
+
+.legenda-section {
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.legenda-titulo {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+
+.legenda-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.legenda-list dt {
     font-weight: bold;
+    font-size: 0.8rem;
+    color: #333;
+    display: inline;
+    margin: 0;
 }
 
-.mencao-SS { color: #2e7d32; } /* Verde Escuro */
-.mencao-MS { color: #4caf50; } /* Verde Médio */
-.mencao-MM { color: #f9a825; } /* Amarelo/Laranja */
-.mencao-MI, .mencao-II { color: #d32f2f; } /* Vermelho */
-.mencao-SR { color: #303030; background: #eee; border-radius: 4px; } /* Cinza (Falta) */
-
-/* Estilo da Legenda */
-.legenda-container {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: #fdfdfd;
-    border-radius: 8px;
-    border-top: 2px solid #eee;
+.legenda-list dd {
+    display: inline;
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0 0 0 8px;
+    padding: 0;
 }
 
-.legenda-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px;
-    font-size: 0.85rem;
-    margin-top: 0.5rem;
-    color: #666;
+@media (max-width: 600px) {
+    .legenda-list {
+        gap: 20px;
+    }
 }

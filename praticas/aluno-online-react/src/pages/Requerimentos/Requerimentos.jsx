@@ -1,50 +1,42 @@
 import './Requerimentos.css';
 
 function Requerimentos() {
+  const requerimentosData = [
+    { tipo: 'Revisão de Menção', data: '15/12/2025', status: 'Indeferido', classe: 'status-indeferido' },
+    { tipo: 'Dispensa de Disciplina', data: '12/06/2025', status: 'Indeferido', classe: 'status-indeferido' },
+    { tipo: 'Trancamento de Matrícula', data: '05/01/2024', status: 'Deferido', classe: 'status-deferido' },
+    { tipo: 'Mudança de Turno', data: '10/10/2023', status: 'Deferido', classe: 'status-deferido' },
+    { tipo: 'Renovação de Matrícula', data: '20/02/2023', status: 'Deferido', classe: 'status-deferido' },
+  ];
+
   return (
-    <div className="requerimentos-container">
-      <h1 className="main-title">Meus Requerimentos</h1>
-      <p className="subtitle">Faça solicitações online para a secretaria</p>
+    <main className="requerimentos-container">
+      <header>
+        <h1 className="main-title">Meus Requerimentos</h1>
+        <p className="subtitle">Faça solicitações online para a secretaria</p>
+      </header>
       
-      <div className="table-responsive">
+      <section className="table-responsive">
         <table className="requerimentos-table">
           <thead>
             <tr>
-              <th>Tipo de Requerimento</th>
-              <th>Data de Solicitação</th>
-              <th>Situação</th>
+              <th scope="col">Tipo de Requerimento</th>
+              <th scope="col">Data de Solicitação</th>
+              <th scope="col">Situação</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Revisão de Menção</td>
-              <td>15/12/2025</td>
-              <td className="status-indeferido">Indeferido</td>
-            </tr>
-            <tr>
-              <td>Dispensa de Disciplina</td>
-              <td>12/06/2025</td>
-              <td className="status-indeferido">Indeferido</td>
-            </tr>
-            <tr>
-              <td>Trancamento de Matrícula</td>
-              <td>05/01/2024</td>
-              <td className="status-deferido">Deferido</td>
-            </tr>
-            <tr>
-              <td>Mudança de Turno</td>
-              <td>10/10/2023</td>
-              <td className="status-deferido">Deferido</td>
-            </tr>
-            <tr>
-              <td>Renovação de Matrícula</td>
-              <td>20/02/2023</td>
-              <td className="status-deferido">Deferido</td>
-            </tr>
+            {requerimentosData.map((req, index) => (
+              <tr key={index}>
+                <th scope="row" className="requerimento-tipo">{req.tipo}</th>
+                <td><time dateTime={req.data.split('/').reverse().join('-')}>{req.data}</time></td>
+                <td className={req.classe}>{req.status}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

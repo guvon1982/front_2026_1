@@ -1,8 +1,9 @@
 .requerimentos-container {
     background-color: white;
-    padding: 2rem;
+    padding: 2.5rem; /* Ajustado para bater com o estilo de Notas */
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: block;
 }
 
 .main-title {
@@ -13,10 +14,15 @@
 }
 
 .subtitle {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: #333;
+    font-size: 1.1rem; /* Um pouco mais equilibrado */
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    color: #666;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
 }
 
 .requerimentos-table {
@@ -27,27 +33,43 @@
 
 .requerimentos-table th, 
 .requerimentos-table td {
-    padding: 1rem;
-    border: 1px solid #eee;
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid #eee;
+
+.requerimentos-table thead th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
 }
 
-.requerimentos-table th {
-    background-color: #f8f9fa;
-    color: #555;
-    font-weight: bold;
+.requerimento-tipo {
+    font-weight: 600;
+    color: #333;
 }
 
 .status-deferido {
-    color: #2e7d32; /* Verde */
-    font-weight: 600;
+    color: #2e7d32;
+    font-weight: 700;
 }
 
 .status-indeferido {
-    color: #d32f2f; /* Vermelho */
-    font-weight: 600;
+    color: #d32f2f;
+    font-weight: 700;
 }
 
 @media (max-width: 600px) {
-    .main-title { font-size: 1.5rem; }
-    .requerimentos-table th, td { padding: 0.5rem; font-size: 0.85rem; }
+    .requerimentos-container {
+        padding: 1rem;
+    }
+    
+    .main-title { font-size: 1.6rem; }
+    
+    .requerimentos-table th, 
+    .requerimentos-table td { 
+        padding: 0.8rem 0.5rem; 
+        font-size: 0.85rem; 
+    }
 }

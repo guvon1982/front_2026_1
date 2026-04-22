@@ -2,6 +2,12 @@
     padding: 1rem;
 }
 
+.main-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
 .boleto-card {
     background: white;
     border: 1px solid #ddd;
@@ -17,16 +23,34 @@
 .boleto-titulo {
     font-size: 1.1rem;
     font-weight: 600;
-    display: block;
-    margin-bottom: 0.5rem;
+    margin: 0 0 0.8rem 0;
+    color: #303030;
 }
 
+
 .boleto-detalhes {
-    display: flex;
-    gap: 30px; /* Aumentei o espaço entre vencimento e valor */
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 30px;
+    row-gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.boleto-detalhes dt {
+    font-weight: bold;
     font-size: 0.9rem;
     color: #555;
+    grid-column: 1;
 }
+
+.boleto-detalhes dd {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    grid-column: 2; 
+}
+
 
 .status-pago {
     color: #2e7d32;
@@ -49,6 +73,7 @@
     background-color: #000;
 }
 
+
 @media (max-width: 768px) {
     .boleto-card {
         flex-direction: column;
@@ -57,7 +82,7 @@
     }
     
     .boleto-detalhes {
-        flex-direction: column;
-        gap: 5px;
+        grid-template-columns: 1fr;
+        gap: 2px;
     }
 }
