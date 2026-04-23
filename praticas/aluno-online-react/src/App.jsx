@@ -9,20 +9,20 @@ import './App.css';
 
 function App() {
   return (
-    <div className="app-grid">
+    <section className="app-grid">
       <Sidebar />
-      <div className="app-content">
+      <section className="app-content">
         <Topbar />
-        <main>
+        <main className="main-render-area">
           <Requerimentos />
-          {/* <Dashboard> */}
+          {/* <Dashboard /> */}
           {/* <Notas /> */}
           {/* <Faltas /> */}
           {/* <Boletos /> */}
           {/* <Requerimentos /> */}
         </main>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }
 

@@ -1,59 +1,80 @@
-.welcome-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    color: #303030;
+/* Container Principal */
+.dashboard-container {
+    padding: 0; /* Espaçamento controlado pelo componente pai ou layout */
 }
 
+/* Cabeçalho de Boas-vindas */
+.dashboard-header {
+    margin-bottom: 2.5rem;
+    text-align: left;
+}
+
+.welcome-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.welcome-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* Grid de Cards - Responsividade Mobile-First */
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Uma coluna por padrão (celular) */
     gap: 1.5rem;
 }
 
-.info-card {
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow: hidden;
+/* Listas internas dos cards */
+.lista-dashboard {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.card-header {
-    background-color: #d8d7d7;
-    padding: 0.8rem 1rem;
-    border-bottom: 1px solid #ccc;
-}
-
-.card-header h3 {
-    margin: 0; /* Remove a margem padrão do h3 */
-    font-size: 1rem; 
-    font-weight: bold;
-    color: #303030;
-}
-
-/* Garantindo que a section de conteúdo se comporte como a antiga div */
-.card-content {
-    display: block;
-}
-
-.card-content p {
-    padding: 0.8rem 1rem;
+.lista-dashboard li {
+    padding: 0.8rem 1.5rem; /* Aumentei um pouco o padding lateral */
     font-size: 1rem;
     border-bottom: 1px solid #eee;
-    margin: 0; 
+    color: #333;
 }
 
-.card-content p:last-child {
+.lista-dashboard li:last-child {
     border-bottom: none;
 }
 
-.card-content p time {
+.lista-dashboard li time {
     font-weight: bold;
     color: #555;
 }
 
-@media (min-width: 1024px) {
+/* --- Media Queries para Responsividade --- */
+
+/* Tablets e Telas Médias */
+@media (min-width: 768px) {
     .dashboard-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr); /* Dois cards por linha */
+    }
+}
+
+/* Desktops e Telas Grandes */
+@media (min-width: 1200px) {
+    /* Opcional: Se quiser 3 colunas em telas muito largas */
+    /* .dashboard-grid { grid-template-columns: repeat(3, 1fr); } */
+}
+
+/* Ajustes para Celulares Pequenos */
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+    
+    .lista-dashboard li {
+        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
     }
 }

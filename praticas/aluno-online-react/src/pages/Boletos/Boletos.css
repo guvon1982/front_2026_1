@@ -1,88 +1,116 @@
 .boletos-container {
-    padding: 1rem;
+    padding: 0;
+}
+
+.page-header {
+    margin-bottom: 2rem;
 }
 
 .main-title {
     font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: #333;
+    font-weight: 800;
+    color: #1a1a1a;
 }
 
 .boleto-card {
     background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    border: 1px solid #eee;
+    border-radius: 12px;
     padding: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.2s;
+}
+
+.boleto-card:hover {
+    border-color: #ddd;
 }
 
 .boleto-titulo {
     font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0 0 0.8rem 0;
-    color: #303030;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    color: #333;
 }
-
 
 .boleto-detalhes {
     display: grid;
     grid-template-columns: auto auto;
-    column-gap: 30px;
-    row-gap: 5px;
+    column-gap: 20px;
+    row-gap: 8px;
     margin: 0;
-    padding: 0;
 }
 
 .boleto-detalhes dt {
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: #555;
-    grid-column: 1;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .boleto-detalhes dd {
     margin: 0;
-    font-size: 0.9rem;
-    color: #555;
-    grid-column: 2; 
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #444;
 }
-
 
 .status-pago {
     color: #2e7d32;
+    background: #e8f5e9;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
     font-weight: 800;
-    letter-spacing: 0.5px;
 }
 
 .btn-gerar {
-    background-color: #303030;
+    background-color: #1a1a1a;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
+    padding: 12px 24px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: 600;
-    transition: background 0.2s;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
 }
 
 .btn-gerar:hover {
-    background-color: #000;
+    background-color: #444;
+    transform: translateY(-2px);
 }
-
 
 @media (max-width: 768px) {
     .boleto-card {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+        align-items: stretch;
+        gap: 1.5rem;
+        padding: 1.2rem;
     }
     
+    .boleto-info {
+        text-align: center;
+    }
+
+    .boleto-titulo {
+        font-size: 1.2rem;
+    }
+
     .boleto-detalhes {
-        grid-template-columns: 1fr;
-        gap: 2px;
+        justify-content: center;
+    }
+
+    .boleto-status {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-gerar {
+        width: 100%;
     }
 }

@@ -1,0 +1,28 @@
+.secao-card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden; /* Mantém o header cinza dentro do raio da borda */
+    margin-bottom: 1.5rem;
+}
+
+.secao-card-header {
+    background-color: #d8d7d7;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.secao-card-titulo {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #303030;
+    text-align: left;
+}
+
+.secao-card-corpo {
+    display: block;
+    width: 100%;
+    overflow-x: auto; /* ATENÇÃO: Isso permite que a tabela deslize no celular */
+    -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
+}
