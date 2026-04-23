@@ -14,7 +14,7 @@ function App() {
       <section className="app-content">
         <Topbar />
         <main className="main-render-area">
-          <Requerimentos />
+          <Dashboard />
           {/* <Dashboard /> */}
           {/* <Notas /> */}
           {/* <Faltas /> */}
