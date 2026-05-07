@@ -23,6 +23,11 @@ function App() {
         <Topbar />
         <main className="main-render-area">
           <Dashboard />
+          {/* <Dashboard /> */}
+          {/* <Notas /> */}
+          {/* <Faltas /> */}
+          {/* <Boletos /> */}
+          {/* <Requerimentos /> */}
         </main>
       </section>
     </section>

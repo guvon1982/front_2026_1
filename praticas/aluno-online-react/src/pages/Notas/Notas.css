@@ -1,93 +1,106 @@
-.notas-container {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    display: block; /* Garante comportamento de bloco no main */
-}
-
-.main-title {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    font-weight: 800;
-    color: #000;
-}
+/* --- Estilos para Desktop (Mantidos) --- */
+.notas-container { padding: 0; }
+.notas-header { margin-bottom: 2rem; }
 
 .notas-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 2.5rem;
 }
 
 .notas-table th, .notas-table td {
     padding: 1rem;
+    border-bottom: 1px solid #eee;
     text-align: center;
-    border: 1px solid #eee;
-    font-size: 0.95rem;
 }
 
-.notas-table thead th {
-    background-color: #f5f5f5;
-    color: #333;
-    font-weight: 700;
+.notas-table .disciplina-nome {
+    text-align: left;
+    padding-left: 1.5rem;
+    width: 40%;
 }
 
-.disciplina-nome {
-    text-align: left !important;
-    padding-left: 1.5rem !important;
-    font-weight: 600;
-}
-
-/* Estilo das Menções */
-.mencao { font-weight: bold; }
+.mencao { font-weight: 800; }
 .mencao-SS { color: #2e7d32; }
 .mencao-MS { color: #4caf50; }
 .mencao-MM { color: #f9a825; }
-.mencao-MI, .mencao-II { color: #d32f2f; }
-.mencao-SR { 
-    background: #eee; 
-    border-radius: 4px; 
-    padding: 8px 12px; 
-}
+.mencao-SR { background: #eee; padding: 2px 6px; border-radius: 4px; }
 
+/* --- Legenda (Estilo Desktop mantido) --- */
 .legenda-section {
-    border-top: 1px solid #eee;
-    padding-top: 1.5rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #eee; /* Adicionado para manter o padrão de card */
 }
 
 .legenda-titulo {
     font-size: 1rem;
+    margin-bottom: 1rem;
     font-weight: 700;
-    margin-bottom: 1.2rem;
+    color: #333;
 }
 
 .legenda-list {
     display: flex;
-    flex-wrap: wrap; 
-    justify-content: flex-start;
-    gap: 40px;
-    margin: 0;
+    flex-wrap: wrap; /* Permite quebrar linha se não couber, mas mantém horizontal */
+    gap: 1.5rem;
+    list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-.legenda-list dt {
-    font-weight: bold;
-    font-size: 0.8rem;
+.legenda-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap; /* Impede que SS e o número quebrem linha */
+}
+
+.legenda-item dt { 
+    font-weight: 800; 
+    font-size: 0.75rem; 
     color: #333;
-    display: inline;
-    margin: 0;
 }
 
-.legenda-list dd {
-    display: inline;
-    font-size: 0.8rem;
-    color: #888;
-    margin: 0 0 0 8px;
-    padding: 0;
+.legenda-item dd { 
+    color: #888; 
+    font-size: 0.75rem; 
+    margin: 0; 
 }
 
-@media (max-width: 600px) {
+/* --- Ajustes Mobile --- */
+@media (max-width: 768px) {
+    /* Mantém os cards de notas que já funcionaram */
+    .notas-table, .notas-table tbody, .notas-table tr { display: block; }
+    .notas-table thead { display: none; }
+    .notas-table tr { background: #fff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1.5rem; }
+    .notas-table .disciplina-nome { display: block; background: #f5f5f5; padding: 0.8rem 1rem !important; font-weight: 800; text-align: center; }
+    .notas-table td:not(.disciplina-nome) { display: flex; justify-content: space-between; padding: 0.6rem 1.2rem !important; border-bottom: 1px solid #f0f0f0; }
+    
+    /* Rótulos das Notas */
+    .notas-table td:nth-child(2):before { content: "P1"; font-weight: 700; color: #777; }
+    .notas-table td:nth-child(3):before { content: "P2"; font-weight: 700; color: #777; }
+    .notas-table td:nth-child(4):before { content: "P3"; font-weight: 700; color: #777; }
+    .notas-table td:nth-child(5):before { content: "Média"; font-weight: 700; color: #777; }
+    .notas-table td:nth-child(6):before { content: "Menção"; font-weight: 700; color: #777; }
+
+    /* REPARO DA LEGENDA NO MOBILE */
+    .legenda-section {
+        padding: 1rem;
+        background: transparent; /* Remove o fundo branco para ficar mais discreto como antes */
+        border: none;
+    }
+
     .legenda-list {
-        gap: 20px;
+        display: flex;
+        flex-direction: row; /* Força horizontal */
+        flex-wrap: wrap;     /* Quebra linha apenas se o celular for muito estreito */
+        justify-content: flex-start;
+        gap: 1rem 1.2rem;    /* Espaçamento equilibrado */
+    }
+
+    .legenda-item {
+        font-size: 0.7rem;
     }
 }
