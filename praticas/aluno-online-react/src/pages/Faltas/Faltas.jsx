@@ -1,51 +1,71 @@
 import './Faltas.css';
+import SecaoCard from '../../components/SecaoCard/SecaoCard';
 
 function Faltas() {
-  const disciplinas = [
-    { id: 1, nome: 'Front-end Frameworks', faltas: 4, limite: 20, presenca: '85%' },
-    { id: 2, nome: 'Arquitetura de Software', faltas: 2, limite: 20, presenca: '92%' },
-    { id: 3, nome: 'Banco de Dados', faltas: 0, limite: 20, presenca: '100%' },
+  const dados2026_1 = [
+    { id: 1, nome: 'BI e Data Warehousing', faltas: 0, presenca: '100%' },
+    { id: 2, nome: 'Construção de Frontend', faltas: 0, presenca: '100%' },
+    { id: 3, nome: 'Manutenção de Software e Devops', faltas: 0, presenca: '100%' },
+  ];
+
+  // Dados extraídos da referência image_7cf10d.png
+  const dados2025_2 = [
+    { id: 4, nome: 'Construção de Backend', faltas: 27, presenca: '87.5%' },
+    { id: 5, nome: 'Estrutura de Dados', faltas: 9, presenca: '85%' },
+    { id: 6, nome: 'Gerenciamento de Projetos', faltas: 10.5, presenca: '82.5%' },
   ];
 
   return (
     <main className="faltas-container">
-      <header>
-        <h1 className="main-title">Controle de Faltas</h1>
-        <p className="subtitle">Visão geral do semestre atual (2026.1)</p>
+      <header className="faltas-header">
+        <h1 className="welcome-title">Minhas Faltas</h1>
+        <p className="welcome-subtitle">Histórico de Faltas por Semestre</p>
       </header>
-      
-      <section className="faltas-grid">
-        {disciplinas.map(disc => (
-          <article key={disc.id} className="falta-card">
-            <h2 className="disciplina-title">{disc.nome}</h2>
-            
-            <section className="card-detalhes">
-              <figure className="falta-info">
-                <p className="numero-faltas">{disc.faltas}</p>
-                <figcaption>Faltas</figcaption>
-              </figure>
-              
-              <figure className="presenca-info">
-                <p className="porcentagem">{disc.presenca}</p>
-                <figcaption>Presença</figcaption>
-              </figure>
-            </section>
-            
-            <footer className={`barra-limite-container ${disc.faltas === 0 ? 'pago-status' : ''}`}>
-              <label htmlFor={`progresso-${disc.id}`} className="limite-texto">
-                {disc.faltas === 0 ? 'Nenhuma falta' : `${disc.faltas} / ${disc.limite} Faltas Permitidas`}
-              </label>
-              <progress 
-                id={`progresso-${disc.id}`} 
-                max={disc.limite} 
-                value={disc.faltas} 
-                className="progresso-limite"
-              >
-                {disc.faltas}%
-              </progress>
-            </footer>
-          </article>
-        ))}
+
+      <section className="faltas-secoes">
+        {/* Semestre Atual */}
+        <SecaoCard titulo="2026.1">
+          <table className="tabela-faltas">
+            <thead>
+              <tr>
+                <th scope="col">Disciplina</th>
+                <th scope="col">Total de Faltas</th>
+                <th scope="col">% de Presença</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dados2026_1.map(disc => (
+                <tr key={disc.id}>
+                  <td>{disc.nome}</td>
+                  <td>{disc.faltas}</td>
+                  <td>{disc.presenca}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </SecaoCard>
+
+        {/* Semestre Anterior - Preenchido conforme referência */}
+        <SecaoCard titulo="2025.2">
+          <table className="tabela-faltas">
+            <thead>
+              <tr>
+                <th scope="col">Disciplina</th>
+                <th scope="col">Total de Faltas</th>
+                <th scope="col">% de Presença</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dados2025_2.map(disc => (
+                <tr key={disc.id}>
+                  <td>{disc.nome}</td>
+                  <td>{disc.faltas}</td>
+                  <td>{disc.presenca}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </SecaoCard>
       </section>
     </main>
   );

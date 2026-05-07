@@ -1,35 +1,39 @@
 import './Dashboard.css';
+import SecaoCard from '../../components/SecaoCard/SecaoCard';
 
 function Dashboard() {
   return (
     <main className="dashboard-container">
-      <header className="dashboard-intro">
-        <p className="welcome-text">Bem-vindo ao portal do aluno</p>
+      {/* Apenas UM cabeçalho aqui */}
+      <header className="dashboard-header">
+        <h1 className="welcome-title">Olá, Aluno!</h1>
+        <p className="welcome-subtitle">Bem-vindo ao portal do aluno</p>
       </header>
 
       <section className="dashboard-grid">
-        <article className="info-card">
-          <header className="card-header">
-            <h3>Mural de Avisos</h3>
-          </header>
-          {/* Substituímos a div por um agrupamento semântico ou lista */}
-          <section className="card-content">
-            <p>Inscrição para o projeto de extensão</p>
-            <p>Eleição para representante de turma</p>
-          </section>
-        </article>
+        <SecaoCard titulo="Mural de Avisos">
+          <ul className="lista-dashboard">
+            <li>Inscrição para o projeto de extensão</li>
+            <li>Eleição para representante de turma</li>
+          </ul>
+        </SecaoCard>
 
-        <article className="info-card">
-          <header className="card-header">
-            <h3>Calendário Acadêmico</h3>
-          </header>
-          <section className="card-content">
-            <p><time dateTime="2026-02-23">23/02</time> - Início do período letivo 2026-1</p>
-            <p><time dateTime="2026-04-25">25/04</time> - Prazo final para aplicação da P1</p>
-            <p><time dateTime="2026-06-23">23/06</time> - Prazo final para aplicação da P2</p>
-            <p><time dateTime="2026-07-04">04/07</time> - Fim do período letivo 2026-1</p>
-          </section>
-        </article>
+        <SecaoCard titulo="Calendário Acadêmico">
+          <ul className="lista-dashboard">
+            <li><time dateTime="2026-02-23">23/02</time> - Início do período letivo 2026-1</li>
+            <li><time dateTime="2026-04-25">25/04</time> - Prazo final para aplicação da P1</li>
+            <li><time dateTime="2026-06-23">23/06</time> - Prazo final para aplicação da P2</li>
+            <li><time dateTime="2026-07-04">04/07</time> - Fim do período letivo 2026-1</li>
+          </ul>
+        </SecaoCard>
+
+        <SecaoCard titulo="Minhas Disciplinas">
+          <ul className="lista-dashboard">
+            <li>BI e Data Warehousing</li>
+            <li>Construção de Frontend</li>
+            <li>Manutenção de Software e Devops</li>
+          </ul>
+        </SecaoCard>
       </section>
     </main>
   );
