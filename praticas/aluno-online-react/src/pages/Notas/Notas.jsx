@@ -1,4 +1,5 @@
 import './Notas.css';
+import SecaoCard from '../../components/SecaoCard/SecaoCard';
 
 function Notas() {
   const notasFicticias = [
@@ -11,9 +12,12 @@ function Notas() {
 
   return (
     <main className="notas-container">
-      <h1 className="main-title">Minhas Notas</h1>
+      <header className="notas-header">
+        <h1 className="welcome-title">Minhas Notas</h1>
+      </header>
       
-      <section className="table-section">
+      {/* Usando o SecaoCard sem título para manter o estilo da imagem de referência */}
+      <SecaoCard>
         <table className="notas-table">
           <thead>
             <tr>
@@ -33,22 +37,26 @@ function Notas() {
                 <td>{item.p2}</td>
                 <td>{item.p3}</td>
                 <td>{item.media}</td>
-                <td className={`mencao mencao-${item.mencao}`}>{item.mencao}</td>
+                <td>
+                  <span className={`mencao mencao-${item.mencao}`}>
+                    {item.mencao}
+                  </span>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </section>
+      </SecaoCard>
 
       <aside className="legenda-section">
         <h2 className="legenda-titulo">Legenda de Menções</h2>
         <dl className="legenda-list">
-          <dt>SS:</dt> <dd>9.0 - 10.0</dd>
-          <dt>MS:</dt> <dd>7.0 - 8.9</dd>
-          <dt>MM:</dt> <dd>5.0 - 6.9</dd>
-          <dt>MI:</dt> <dd>3.0 - 4.9</dd>
-          <dt>II:</dt> <dd>0.1 - 2.9</dd>
-          <dt>SR:</dt> <dd>Faltas &gt; 25%</dd>
+          <section className="legenda-item"><dt>SS:</dt><dd>9.0 - 10.0</dd></section>
+          <section className="legenda-item"><dt>MS:</dt><dd>7.0 - 8.9</dd></section>
+          <section className="legenda-item"><dt>MM:</dt><dd>5.0 - 6.9</dd></section>
+          <section className="legenda-item"><dt>MI:</dt><dd>3.0 - 4.9</dd></section>
+          <section className="legenda-item"><dt>II:</dt><dd>0.1 - 2.9</dd></section>
+          <section className="legenda-item"><dt>SR:</dt><dd>Faltas &gt; 25%</dd></section>
         </dl>
       </aside>
     </main>

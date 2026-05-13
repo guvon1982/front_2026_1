@@ -1,15 +1,13 @@
 import './Topbar.css';
-import avatarIcon from '../../assets/avatar.svg';
+import userIcon from '../../assets/avatar.svg'; // Usando o arquivo existente na pasta assets
 
 function Topbar() {
   return (
     <header className="topbar">
-      <section className="topbar-content">
-        <h1>Olá, Aluno!</h1>
-        <figure className="user-info">
-          <img src={avatarIcon} alt="Foto de perfil do aluno" className="user-avatar" />
-        </figure>
-      </section>
+      {/* O título foi removido daqui para evitar a duplicidade visual */}
+      <figure className="user-profile">
+        <img src={userIcon} alt="Perfil do Usuário" />
+      </figure>
     </header>
   );
 }

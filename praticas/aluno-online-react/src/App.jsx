@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -5,24 +6,31 @@ import Notas from './pages/Notas/Notas';
 import Faltas from './pages/Faltas/Faltas';
 import Boletos from './pages/Boletos/Boletos';
 import Requerimentos from './pages/Requerimentos/Requerimentos';
+import Login from './pages/Login/Login';
 import './App.css';
 
 function App() {
+  const [estaLogado, setEstaLogado] = useState(false);
+
+  if (!estaLogado) {
+    return <Login onLogin={() => setEstaLogado(true)} />;
+  }
+
   return (
-    <div className="app-grid">
+    <section className="app-grid">
       <Sidebar />
-      <div className="app-content">
+      <section className="app-content">
         <Topbar />
-        <main>
-          <Requerimentos />
-          {/* <Dashboard> */}
+        <main className="main-render-area">
+          <Dashboard />
+          {/* <Dashboard /> */}
           {/* <Notas /> */}
           {/* <Faltas /> */}
           {/* <Boletos /> */}
           {/* <Requerimentos /> */}
         </main>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }
 
