@@ -1,12 +1,11 @@
-import { useContext } from "react";
 import "./Menu.css";
 import { Link, NavLink } from "react-router";
-import { AuthContext } from "../context/AuthContext";
+import { useAuthContext } from "../context/AuthContext";
 
 function Menu() {
   const usuarioId = 0; //pegou da API
 
-  const { logout, usuario } = useContext(AuthContext);
+  const { logout, usuario } = useAuthContext();
 
   const handleSair = () => {
     logout();
