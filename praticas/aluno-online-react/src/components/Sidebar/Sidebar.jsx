@@ -1,11 +1,20 @@
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
+import { useAuth } from '../../contexts/AuthContext';
 import './Sidebar.css';
 import learnIcon from '../../assets/learn.svg';
 
-function Sidebar({ onLogout }) {
+function Sidebar() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
   const getNavClass = ({ isActive }) => (
     isActive ? 'sidebar-link active' : 'sidebar-link'
   );
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login', { replace: true });
+  };
 
   return (
     <aside className="sidebar-estatica">
@@ -21,7 +30,7 @@ function Sidebar({ onLogout }) {
           <li><NavLink to="/faltas" className={getNavClass}>Faltas</NavLink></li>
           <li><NavLink to="/boletos" className={getNavClass}>Boletos</NavLink></li>
           <li><NavLink to="/requerimentos" className={getNavClass}>Requerimentos</NavLink></li> 
-          <li className="logout"><button type="button" onClick={onLogout}>Sair</button></li>
+          <li className="logout"><button type="button" onClick={handleLogout}>Sair</button></li>
         </ul>
       </nav>
     </aside>
