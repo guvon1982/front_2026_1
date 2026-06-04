@@ -67,7 +67,7 @@
     transition: background 0.3s;
 }
 
-.sidebar-nav li.active a { 
+.sidebar-nav .sidebar-link.active { 
     background-color: #ffffff; 
     font-weight: bold; 
 }
