@@ -11,6 +11,7 @@ import './App.css';
 
 function App() {
   const [estaLogado, setEstaLogado] = useState(false);
+  const handleLogout = () => setEstaLogado(false);
 
   if (!estaLogado) {
     return <Login onLogin={() => setEstaLogado(true)} />;
@@ -18,7 +19,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Layout onLogout={handleLogout} />}>
         <Route index element={<Dashboard />} />
         <Route path="faltas" element={<Faltas />} />
         <Route path="notas" element={<Notas />} />

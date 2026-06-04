@@ -2,7 +2,7 @@ import { NavLink } from 'react-router';
 import './Sidebar.css';
 import learnIcon from '../../assets/learn.svg';
 
-function Sidebar() {
+function Sidebar({ onLogout }) {
   const getNavClass = ({ isActive }) => (
     isActive ? 'sidebar-link active' : 'sidebar-link'
   );
@@ -21,7 +21,7 @@ function Sidebar() {
           <li><NavLink to="/faltas" className={getNavClass}>Faltas</NavLink></li>
           <li><NavLink to="/boletos" className={getNavClass}>Boletos</NavLink></li>
           <li><NavLink to="/requerimentos" className={getNavClass}>Requerimentos</NavLink></li> 
-          <li className="logout"><button type="button">Sair</button></li>
+          <li className="logout"><button type="button" onClick={onLogout}>Sair</button></li>
         </ul>
       </nav>
     </aside>
