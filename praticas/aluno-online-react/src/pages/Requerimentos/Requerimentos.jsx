@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import './Requerimentos.css';
 
 function Requerimentos() {
@@ -14,6 +15,9 @@ function Requerimentos() {
       <header>
         <h1 className="main-title">Meus Requerimentos</h1>
         <p className="subtitle">Faça solicitações online para a secretaria</p>
+        <Link className="novo-requerimento-link" to="/requerimentos/novo">
+          ➕ Novo Requerimento
+        </Link>
       </header>
       
       <section className="table-responsive">
