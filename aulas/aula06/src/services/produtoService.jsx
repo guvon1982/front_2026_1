@@ -38,7 +38,7 @@ async function listar() {
 }
 
 // PUT /id
-async function atualizar(produto) {
+async function modificar(produto) {
   try {
     // gera uma requisicao HTTP no JS
     const response = await fetch(`${url}/${produto.id}`, {
@@ -65,4 +65,4 @@ async function remover(produto) {
   }
 }
 
-export { criar, obter, listar, atualizar, remover };
+export { criar, obter, listar, modificar, remover };
