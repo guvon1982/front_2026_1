@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
+import { cadastrarRequerimento } from '../services/requerimentoService';
 import './RequerimentoForm.css';
 
 const dataAtual = () => new Date().toISOString().slice(0, 10);
@@ -10,7 +11,8 @@ function RequerimentoForm() {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    setError,
+    formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: {
       tipo: '',
@@ -19,13 +21,25 @@ function RequerimentoForm() {
     },
   });
 
-  const onSubmit = (dados) => {
-    console.log('Novo requerimento:', dados);
-    reset({
-      tipo: '',
-      descricao: '',
-      data: dataAtual(),
-    });
+  const onSubmit = async (dados) => {
+    try {
+      const novoRequerimento = await cadastrarRequerimento({
+        ...dados,
+        status: 'Em análise',
+      });
+
+      console.log('Novo requerimento:', novoRequerimento);
+      reset({
+        tipo: '',
+        descricao: '',
+        data: dataAtual(),
+      });
+      navigate('/requerimentos');
+    } catch {
+      setError('root', {
+        message: 'Não foi possível salvar o requerimento. Verifique se a API está em execução.',
+      });
+    }
   };
 
   return (
@@ -78,10 +92,16 @@ function RequerimentoForm() {
           <button type="button" className="btn-cancelar" onClick={() => navigate('/requerimentos')}>
             Cancelar
           </button>
-          <button type="submit" className="btn-salvar">
-            Salvar
+          <button type="submit" className="btn-salvar" disabled={isSubmitting}>
+            {isSubmitting ? 'Salvando...' : 'Salvar'}
           </button>
         </section>
+
+        {errors.root && (
+          <p className="form-error form-submit-error" role="alert">
+            {errors.root.message}
+          </p>
+        )}
       </form>
     </main>
   );

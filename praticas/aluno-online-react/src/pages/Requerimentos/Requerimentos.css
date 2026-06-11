@@ -70,6 +70,21 @@
     font-weight: 700;
 }
 
+.status-em-analise {
+    color: #9a6700;
+    font-weight: 700;
+}
+
+.requerimentos-feedback {
+    color: #555;
+    font-weight: 600;
+    margin: 1rem 0;
+}
+
+.requerimentos-erro {
+    color: #d32f2f;
+}
+
 /* --- Mobile: Transformação em Cards (Identidade Notas/Boletos) --- */
 @media (max-width: 768px) {
     .requerimentos-table, 
@@ -135,7 +150,8 @@
     /* Estilo do Valor Real */
     .requerimentos-table td > time,
     .requerimentos-table td.status-deferido,
-    .requerimentos-table td.status-indeferido {
+    .requerimentos-table td.status-indeferido,
+    .requerimentos-table td.status-em-analise {
         font-size: 1rem;
         font-weight: 600;
         text-align: left; /* Alinha o valor à esquerda no mobile */
@@ -145,4 +161,5 @@
     /* Cores dos Status (Mantidas) */
     .status-deferido { color: #2e7d32 !important; }
     .status-indeferido { color: #d32f2f !important; }
+    .status-em-analise { color: #9a6700 !important; }
 }

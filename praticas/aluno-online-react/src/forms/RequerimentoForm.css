@@ -82,6 +82,15 @@
   padding: 0.45rem 0.7rem;
 }
 
+.form-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.form-submit-error {
+  margin: 0;
+}
+
 .btn-cancelar {
   background-color: #f4f4f4;
   color: #101010;
