@@ -1,23 +1,29 @@
 import { createContext, useContext, useState } from 'react';
+import { limparSessao, obterSessaoSalva, salvarSessao } from '../services/authService';
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [autenticado, setAutenticado] = useState(false);
-  const [usuario, setUsuario] = useState(null);
+  const sessaoInicial = obterSessaoSalva();
+  const [usuario, setUsuario] = useState(sessaoInicial?.usuario ?? null);
+  const [token, setToken] = useState(sessaoInicial?.token ?? null);
 
-  const login = (dadosUsuario) => {
-    setUsuario(dadosUsuario);
-    setAutenticado(true);
+  const autenticado = Boolean(usuario && token);
+
+  const login = (dadosSessao) => {
+    salvarSessao(dadosSessao);
+    setUsuario(dadosSessao.usuario);
+    setToken(dadosSessao.token);
   };
 
   const logout = () => {
+    limparSessao();
     setUsuario(null);
-    setAutenticado(false);
+    setToken(null);
   };
 
   return (
-    <AuthContext.Provider value={{ autenticado, usuario, login, logout }}>
+    <AuthContext.Provider value={{ autenticado, usuario, token, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

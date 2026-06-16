@@ -1,12 +1,14 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
-import { cadastrarRequerimento } from '../services/requerimentoService';
+import { useAuth } from '../contexts/AuthContext';
+import { cadastrarRequerimento, ErroAutorizacao } from '../services/requerimentoService';
 import './RequerimentoForm.css';
 
 const dataAtual = () => new Date().toISOString().slice(0, 10);
 
 function RequerimentoForm() {
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const {
     register,
     handleSubmit,
@@ -35,7 +37,13 @@ function RequerimentoForm() {
         data: dataAtual(),
       });
       navigate('/requerimentos');
-    } catch {
+    } catch (error) {
+      if (error instanceof ErroAutorizacao) {
+        logout();
+        navigate('/login', { replace: true });
+        return;
+      }
+
       setError('root', {
         message: 'Não foi possível salvar o requerimento. Verifique se a API está em execução.',
       });

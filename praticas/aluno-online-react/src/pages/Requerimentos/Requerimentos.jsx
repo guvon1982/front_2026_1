@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router';
-import { listarRequerimentos } from '../../services/requerimentoService';
+import { Link, useNavigate } from 'react-router';
+import { useAuth } from '../../contexts/AuthContext';
+import { ErroAutorizacao, listarRequerimentos } from '../../services/requerimentoService';
 import './Requerimentos.css';
 
 const formatarData = (data) => {
@@ -23,6 +24,8 @@ const classeStatus = (status) => {
 };
 
 function Requerimentos() {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
   const [requerimentos, setRequerimentos] = useState([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState('');
@@ -32,7 +35,13 @@ function Requerimentos() {
       try {
         const dados = await listarRequerimentos();
         setRequerimentos(dados);
-      } catch {
+      } catch (error) {
+        if (error instanceof ErroAutorizacao) {
+          logout();
+          navigate('/login', { replace: true });
+          return;
+        }
+
         setErro('Não foi possível carregar os requerimentos. Verifique se a API está em execução.');
       } finally {
         setCarregando(false);
@@ -40,7 +49,7 @@ function Requerimentos() {
     };
 
     carregarRequerimentos();
-  }, []);
+  }, [logout, navigate]);
 
   return (
     <main className="requerimentos-container">
