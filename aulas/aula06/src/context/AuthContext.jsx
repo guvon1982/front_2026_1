@@ -6,13 +6,15 @@ const AuthContext = createContext();
 
 //cria o provedor
 function AuthProvider({ children }) {
-  const [logado, setLogado] = useState(false);
+  const token = localStorage.getItem("app:token");
+  const [logado, setLogado] = useState(!!token);
   const [usuario, setUsuario] = useState({});
 
   const login = async (dados) => {
     const resposta = await autenticar(dados);
     if (resposta?.token) {
       setUsuario(resposta);
+      localStorage.setItem("app:token", JSON.stringify(resposta));
       setLogado(true);
       return;
     }
