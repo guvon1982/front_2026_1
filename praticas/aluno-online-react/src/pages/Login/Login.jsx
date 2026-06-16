@@ -30,8 +30,6 @@ const Login = ({ onLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Autenticando...", formData);
-      alert("Login realizado com sucesso!");
       onLogin(); 
     }
   };
