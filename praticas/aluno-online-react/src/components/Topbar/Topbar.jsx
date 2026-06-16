@@ -1,13 +1,20 @@
+import { useAuth } from '../../contexts/AuthContext';
 import './Topbar.css';
-import userIcon from '../../assets/avatar.svg'; // Usando o arquivo existente na pasta assets
+import userIcon from '../../assets/avatar.svg';
 
 function Topbar() {
+  const { usuario } = useAuth();
+
   return (
     <header className="topbar">
-      {/* O título foi removido daqui para evitar a duplicidade visual */}
-      <figure className="user-profile">
-        <img src={userIcon} alt="Perfil do Usuário" />
-      </figure>
+      <section className="user-profile">
+        <span className="user-info">
+          {usuario?.nome} | {usuario?.email}
+        </span>
+        <figure>
+          <img src={userIcon} alt="Perfil do Usuario" />
+        </figure>
+      </section>
     </header>
   );
 }

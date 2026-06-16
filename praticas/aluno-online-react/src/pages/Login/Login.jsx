@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import Input from '../../components/Input/Input';
+import { useAuth } from '../../contexts/AuthContext';
 import iconeChapeu from '../../assets/learn.svg';
 import './Login.css';
 
-const Login = ({ onLogin }) => { 
+const Login = () => { 
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: '', senha: '' });
   const [errors, setErrors] = useState({});
 
@@ -30,7 +34,11 @@ const Login = ({ onLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      onLogin(); 
+      login({
+        nome: 'Aluno',
+        email: formData.email,
+      });
+      navigate('/', { replace: true });
     }
   };
 

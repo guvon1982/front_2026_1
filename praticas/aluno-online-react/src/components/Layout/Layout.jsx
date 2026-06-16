@@ -3,10 +3,10 @@ import Sidebar from '../Sidebar/Sidebar';
 import Topbar from '../Topbar/Topbar';
 import './Layout.css';
 
-function Layout({ onLogout }) {
+function Layout() {
   return (
     <section className="app-grid">
-      <Sidebar onLogout={onLogout} />
+      <Sidebar />
       <section className="app-content">
         <Topbar />
         <main className="main-render-area">
